@@ -7,7 +7,8 @@ public class Bandit : MonoBehaviour {
     [SerializeField] float      m_jumpForce = 2.0f;
 
     public string horizontalmovement = "Horizontal";
-    public string JumpInput = "joystick button 0";
+    public string JumpInput = "Jump";
+    public string attackInput = "attack_1";
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
@@ -68,7 +69,7 @@ public class Bandit : MonoBehaviour {
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if(Input.GetKeyDown("joystick button 2"))
+        else if(Input.GetButtonDown(attackInput))
             {
             m_animator.SetTrigger("Attack");
         }
