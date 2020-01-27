@@ -7,7 +7,7 @@ public class Bandit1 : MonoBehaviour {
     [SerializeField] float      m_jumpForce = 2.0f;
 
     public string horizontalmovement = "Horizontal";
-        public string JumpInput = "Jump_2";
+    public string JumpInput = "Jump_2";
     public string attackInput = "attack_2";
 
     private Animator            m_animator;
@@ -16,6 +16,8 @@ public class Bandit1 : MonoBehaviour {
     private bool                m_grounded = false;
     private bool                m_combatIdle = false;
     private bool                m_isDead = false;
+    public bool killed = false;
+    public GameObject Hitbox;
 
     // Use this for initialization
     void Start () {
@@ -62,6 +64,12 @@ public class Bandit1 : MonoBehaviour {
                 m_animator.SetTrigger("Recover");
 
             m_isDead = !m_isDead;
+        }
+
+        if (this.killed == true)
+        {
+            if (!m_isDead)
+                m_animator.SetTrigger("Death");
         }
             
         //Hurt

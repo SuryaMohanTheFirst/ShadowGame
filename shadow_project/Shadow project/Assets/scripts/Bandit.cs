@@ -16,6 +16,9 @@ public class Bandit : MonoBehaviour {
     private bool                m_grounded = false;
     private bool                m_combatIdle = false;
     private bool                m_isDead = false;
+    public bool killed = false;
+    public GameObject Hitbox;
+
 
     // Use this for initialization
     void Start () {
@@ -63,7 +66,13 @@ public class Bandit : MonoBehaviour {
 
             m_isDead = !m_isDead;
         }
-            
+
+        if (this.killed == true)
+        {
+            if (!m_isDead)
+                m_animator.SetTrigger("Death");
+        }
+
         //Hurt
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
@@ -72,6 +81,7 @@ public class Bandit : MonoBehaviour {
         else if(Input.GetButtonDown(attackInput))
             {
             m_animator.SetTrigger("Attack");
+            Attacking();
         }
 
         //Change between idle and combat idle
@@ -98,5 +108,10 @@ public class Bandit : MonoBehaviour {
         //Idle
         else
             m_animator.SetInteger("AnimState", 0);
+    }  
+    private void Attacking()
+    {
+        Hitbox.SetActive(true);
     }
+
 }

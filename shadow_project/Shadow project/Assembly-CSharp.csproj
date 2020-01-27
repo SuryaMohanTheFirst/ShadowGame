@@ -75,6 +75,7 @@
     <Compile Include="Assets\scripts\Bandit.cs" />
     <Compile Include="Assets\scripts\Bandit1.cs" />
     <Compile Include="Assets\scripts\CharacterSelector_Bandit.cs" />
+    <Compile Include="Assets\scripts\Kill.cs" />
     <Compile Include="Assets\scripts\LightManager.cs" />
     <Compile Include="Assets\scripts\lightOnOff.cs" />
     <Compile Include="Assets\scripts\Sensor_Bandit.cs" />

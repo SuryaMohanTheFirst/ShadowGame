@@ -8,21 +8,22 @@ public class LightManager : MonoBehaviour
     private int remainder;
     public float swapTime;
     public GameObject backingLight;
+    public bool shadow;
 
     // Start is called before the first frame update
     void Start()
     {
         randVal = Random.Range(1, 11);
-        Debug.Log(randVal);
         remainder = randVal % 2;
-        Debug.Log(remainder);
         if (remainder == 1)
         {
             backingLight.SetActive(true);
+            shadow = false;
         }
         else if (remainder == 0)
         {
             backingLight.SetActive(false);
+            shadow = true;
         }
 
         InvokeRepeating("swapLight", swapTime, swapTime);
@@ -36,13 +37,14 @@ public class LightManager : MonoBehaviour
 
     void swapLight()
     {
-        print(backingLight.activeSelf);
         if (backingLight.activeSelf)
         {
             backingLight.SetActive(false);
+            shadow = true;
         } else
         {
             backingLight.SetActive(true);
+            shadow = false;
         }
     }
 }
