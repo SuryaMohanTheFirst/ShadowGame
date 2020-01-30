@@ -576,6 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swapTime: 5
   backingLight: {fileID: 729459774}
+  shadow: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3082,7 +3083,7 @@ PrefabInstance:
     - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
         type: 3}
       propertyPath: horizontalmovement
-      value: Horizontal
+      value: Horizontal1
       objectReference: {fileID: 0}
     - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
         type: 3}
@@ -3216,7 +3217,7 @@ PrefabInstance:
     - target: {fileID: 4495777742563604412, guid: 542dd2bd00bff264a9302074699f5555,
         type: 3}
       propertyPath: horizontalmovement
-      value: Horizontal
+      value: Horizontal2
       objectReference: {fileID: 0}
     - target: {fileID: 4500543261031110139, guid: 542dd2bd00bff264a9302074699f5555,
         type: 3}
