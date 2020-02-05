@@ -5,10 +5,13 @@ public class Bandit1 : MonoBehaviour {
 
     [SerializeField] float      m_speed = 1.0f;
     [SerializeField] float      m_jumpForce = 2.0f;
+    public float dashSpeed;
 
     public string horizontalmovement = "Horizontal";
     public string JumpInput = "Jump_2";
     public string attackInput = "attack_2";
+    public string dashInput = "dash";
+    bool canDash = false;
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
@@ -17,13 +20,16 @@ public class Bandit1 : MonoBehaviour {
     private bool                m_combatIdle = false;
     private bool                m_isDead = false;
     public bool killed = false;
+    public int dahForce = 5;
     public GameObject Hitbox;
+    Transform mytransform;
 
     // Use this for initialization
     void Start () {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
+        mytransform = GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
@@ -71,15 +77,21 @@ public class Bandit1 : MonoBehaviour {
             if (!m_isDead)
                 m_animator.SetTrigger("Death");
         }
-            
+
         //Hurt
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if(Input.GetButtonDown(attackInput))
-            {
+        else if (Input.GetButtonDown(attackInput))
+        {
             m_animator.SetTrigger("Attack");
+        }
+        // dash
+        else if (Input.GetButtonDown(dashInput))
+        {
+            canDash = true;
+            dash();
         }
 
         //Change between idle and combat idle
@@ -103,8 +115,31 @@ public class Bandit1 : MonoBehaviour {
         else if (m_combatIdle)
             m_animator.SetInteger("AnimState", 1);
 
+       
+
         //Idle
         else
             m_animator.SetInteger("AnimState", 0);
+       
+    }
+    void dash()
+    {
+        if (canDash)
+        {
+            float inputX = Input.GetAxis(horizontalmovement);
+            if (inputX < 0)
+            {
+                m_body2d.velocity = Vector2.left * dashSpeed;
+                canDash = false;
+            }
+            else if (inputX > 0)
+            {
+                m_body2d.velocity = Vector2.right * dashSpeed;
+                canDash = false;
+
+            }
+          
+           
+        }
     }
 }
