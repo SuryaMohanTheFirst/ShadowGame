@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightManager : MonoBehaviour
+public class LightHandler : MonoBehaviour
 {
     private int randVal;
     private int remainder;

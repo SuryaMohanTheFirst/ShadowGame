@@ -23,6 +23,7 @@ public class Bandit1 : MonoBehaviour {
     public int dahForce = 5;
     public GameObject Hitbox;
     Transform mytransform;
+    public GameObject lightHandler;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,7 @@ public class Bandit1 : MonoBehaviour {
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
         mytransform = GetComponent<Transform>();
+        lightHandler = GameObject.FindGameObjectWithTag("LightManager");
     }
 	
 	// Update is called once per frame
@@ -90,8 +92,12 @@ public class Bandit1 : MonoBehaviour {
         // dash
         else if (Input.GetButtonDown(dashInput))
         {
-            canDash = true;
-            dash();
+            
+            if (!lightHandler.GetComponent<LightHandler>().shadow)
+            {
+                canDash = true;
+                dash();
+            }
         }
 
         //Change between idle and combat idle
@@ -114,8 +120,6 @@ public class Bandit1 : MonoBehaviour {
         //Combat Idle
         else if (m_combatIdle)
             m_animator.SetInteger("AnimState", 1);
-
-       
 
         //Idle
         else

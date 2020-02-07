@@ -682,7 +682,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -698,21 +697,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d899fb52cdb4a284f903b189ba6ab5d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swapTime: 5
-  backingLight: {fileID: 729459774}
-  shadow: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1719,6 +1703,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1494015105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1527959786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527959788}
+  - component: {fileID: 1527959787}
+  m_Layer: 0
+  m_Name: LightManager
+  m_TagString: LightManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1527959787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527959786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d899fb52cdb4a284f903b189ba6ab5d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swapTime: 5
+  backingLight: {fileID: 729459774}
+  shadow: 0
+--- !u!4 &1527959788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527959786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.062665, y: -0.6340279, z: -2.0618103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594071909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3567,11 @@ PrefabInstance:
       propertyPath: Hitbox
       value: 
       objectReference: {fileID: 316998278}
+    - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
+        type: 3}
+      propertyPath: diveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3623691853485267097, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
         type: 3}
       propertyPath: m_Color.r
