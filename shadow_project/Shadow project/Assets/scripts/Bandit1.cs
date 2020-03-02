@@ -78,6 +78,8 @@ public class Bandit1 : MonoBehaviour {
         {
             if (!m_isDead)
                 m_animator.SetTrigger("Death");
+            if (killed == true) ;
+       
         }
 
         //Hurt
