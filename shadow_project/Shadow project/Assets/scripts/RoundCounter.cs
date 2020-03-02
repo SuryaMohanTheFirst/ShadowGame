@@ -12,23 +12,42 @@ public class RoundCounter : MonoBehaviour
     public static int P2Wins;
     public static int P3Wins;
     public static int P4Wins;
-    public int Win = 3;
-    public int leader;
+    public int Win = 3;    
+    public bool EndRound = true;
 
     // Start is called before the first frame update
     void Start()
-    {
-        leader = P1Wins;
+    {    
+        EndRound = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player2.GetComponent<Bandit1>().killed == true && player3.GetComponent<Bandit3>().killed == true && player4.GetComponent<Bandit4>().killed == true)
+        if (EndRound == true && player2.GetComponent<Bandit1>().killed == true && player3.GetComponent<Bandit3>().killed == true && player4.GetComponent<Bandit4>().killed == true)
         {
-            P1Wins += 1;           
+            P1Wins += 1;
+            EndRound = false;
         }
-                     
+
+        if (EndRound == true && player1.GetComponent<Bandit>().killed == true && player3.GetComponent<Bandit3>().killed == true && player4.GetComponent<Bandit4>().killed == true)
+        {
+            P2Wins += 1;
+            EndRound = false;
+        }
+
+        if (EndRound == true && player1.GetComponent<Bandit>().killed == true && player2.GetComponent<Bandit1>().killed == true && player4.GetComponent<Bandit4>().killed == true)
+        {
+            P3Wins += 1;
+            EndRound = false;
+        }
+
+        if (EndRound == true && player1.GetComponent<Bandit>().killed == true && player2.GetComponent<Bandit1>().killed == true && player3.GetComponent<Bandit3>().killed == true)
+        {
+            P4Wins += 1;
+            EndRound = false;
+        }
+
         if (P1Wins >= Win || P2Wins >= Win || P3Wins >= Win || P4Wins >= Win)
         {
 
