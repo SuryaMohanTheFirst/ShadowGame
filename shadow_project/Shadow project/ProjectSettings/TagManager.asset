@@ -40,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background Art
+    uniqueID: 989405835
+    locked: 0
+  - name: Foreground Art
+    uniqueID: 966330111
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 714853093
     locked: 0
