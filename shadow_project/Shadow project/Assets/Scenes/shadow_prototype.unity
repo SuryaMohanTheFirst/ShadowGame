@@ -3572,6 +3572,21 @@ PrefabInstance:
       propertyPath: diveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
+        type: 3}
+      propertyPath: offset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
+        type: 3}
+      propertyPath: thisCharacter
+      value: 
+      objectReference: {fileID: 3511275562832259267}
+    - target: {fileID: 3540393552451278049, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
+        type: 3}
+      propertyPath: blinkDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3623691853485267097, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
         type: 3}
       propertyPath: m_Color.r
@@ -3624,6 +3639,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d0c1b8e3c48f64eb3fc9483de953e9, type: 3}
+--- !u!4 &3511275562832259267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3506829774582239293, guid: 29d0c1b8e3c48f64eb3fc9483de953e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3511275562832259266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4495777744476129176
 PrefabInstance:
   m_ObjectHideFlags: 0

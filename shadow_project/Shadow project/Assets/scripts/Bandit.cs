@@ -12,6 +12,7 @@ public class Bandit : MonoBehaviour
     public string JumpInput = "Jump";
     public string attackInput = "attack_1";
     public string diveInput = "dive";
+    public string blinkInput = "blink";
     bool airborne = false;
 
     private Animator m_animator;
@@ -23,6 +24,9 @@ public class Bandit : MonoBehaviour
     public bool killed = false;
     public GameObject Hitbox;
     public GameObject lightHandler;
+    public Transform thisCharacter;
+    public float blinkDistance;
+    private Vector3 offset;
 
     // Use this for initialization
     void Start()
@@ -113,6 +117,12 @@ public class Bandit : MonoBehaviour
             airborne = true;
         }
 
+        //Blink
+        else if (Input.GetButtonDown(blinkInput))
+        {
+            blink();
+        }
+
         else if (Input.GetButtonDown(JumpInput) && lightHandler.GetComponent<LightHandler>().shadow)
         {
             m_animator.SetTrigger("Jump");
@@ -153,5 +163,17 @@ public class Bandit : MonoBehaviour
             airborne = false;
         }
 
+    }
+
+    private void blink()
+    {
+        print("blinked!");
+
+        offset = new Vector3(blinkDistance, 0, 0);
+
+        Vector3 position = transform.position;
+        position.x = (thisCharacter.position + offset).x;
+
+        transform.position = position;
     }
 }

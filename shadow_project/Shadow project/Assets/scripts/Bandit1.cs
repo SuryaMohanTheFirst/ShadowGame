@@ -8,9 +8,11 @@ public class Bandit1 : MonoBehaviour {
     public float dashSpeed;
 
     public string horizontalmovement = "Horizontal";
+    public string verticalmovement = "Vertical";
     public string JumpInput = "Jump_2";
     public string attackInput = "attack_2";
     public string dashInput = "dash";
+    public string shoryukenInput = "shoryuken";
     bool canDash = false;
 
     private Animator            m_animator;
@@ -88,11 +90,12 @@ public class Bandit1 : MonoBehaviour {
         else if (Input.GetButtonDown(attackInput))
         {
             m_animator.SetTrigger("Attack");
+            Attacking();
         }
         // dash
         else if (Input.GetButtonDown(dashInput))
         {
-            
+
             if (!lightHandler.GetComponent<LightHandler>().shadow)
             {
                 canDash = true;
@@ -100,12 +103,21 @@ public class Bandit1 : MonoBehaviour {
             }
         }
 
+        //shoryuken
+        else if (Input.GetButtonDown(shoryukenInput))
+        {
+            shoryuken();
+            Attacking();
+        }
+
+
         //Change between idle and combat idle
         else if (Input.GetKeyDown("f"))
             m_combatIdle = !m_combatIdle;
 
         //Jump
-        else if (Input.GetButtonDown(JumpInput) && m_grounded) {
+        else if (Input.GetButtonDown(JumpInput) && m_grounded)
+        {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
@@ -126,6 +138,12 @@ public class Bandit1 : MonoBehaviour {
             m_animator.SetInteger("AnimState", 0);
        
     }
+
+    private void Attacking()
+    {
+        Hitbox.SetActive(true);
+    }
+
     void dash()
     {
         if (canDash)
@@ -146,4 +164,12 @@ public class Bandit1 : MonoBehaviour {
            
         }
     }
+
+    void shoryuken()
+    {
+        float inputY = Input.GetAxis(verticalmovement);
+        m_body2d.velocity = Vector2.up * dashSpeed;
+        Attacking();
+    }
+
 }
